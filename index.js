@@ -24,4 +24,52 @@ function randNum() {
   return Math.floor(Math.random() * messages.length);
 }
 
-console.log(messages[randNum()]);
+function getCurrentTimestamp() {
+  return new Date().toLocaleString();
+}
+
+function getRandomColor() {
+  const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'cyan', 'violet','brown', 'black', 'white', 'gray', 'silver', 'gold', 'beige', 'turquoise', 'lavender', 'magenta', 'indigo', 'maroon', 'navy blue', 'olive', 'teal'];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function getVerb() {
+  const verbs = ['wearing', 'running', 'swimming', 'looking', 'using', ''];
+  return verbs[Math.floor(Math.random() * verbs.length)];
+}
+
+function getNoun() {
+  const nouns = ['increase', 'decrease', 'enhance', 'influence'];
+  return nouns[Math.floor(Math.random() * nouns.length)];
+}
+
+function getPreposition(verb) {
+  switch (verb) {
+    case 'wearing': return 'anything ';
+    case 'running': return 'in ';
+    case 'swimming': return 'with ';
+    case 'looking': return 'at ';
+    case 'using': return '';
+  }
+}
+
+function displayJoke() {
+  const jokeIndex = randNum();
+  const joke = messages[jokeIndex];
+  const randVerb = getVerb();
+  const verb  = randVerb;
+  const randNoun = getNoun();
+  const favoriteColor = getRandomColor();
+  const color = favoriteColor;
+  const preposition = getPreposition(verb);
+
+  console.log(`
+  Joke: ${joke}
+  
+  This color can today ${randNoun} your luck: ${favoriteColor}
+  
+  if the joke is not funny to you, then you should probably avoid ${randVerb} ${preposition}${color}
+  `);
+}
+
+displayJoke();
