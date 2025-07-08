@@ -24,6 +24,4 @@ function randNum() {
   return Math.floor(Math.random() * messages.length);
 }
 
-function messageOut(num) {}
-
-console.log(messageOut(num));
+console.log(messages[randNum()]);
